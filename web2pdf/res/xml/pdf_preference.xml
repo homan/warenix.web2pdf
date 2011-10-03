@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<EditTextPreference android:key="url" android:title="Web2PDF!"
+		android:summary="Tap me to convert." android:dialogTitle="Convert this url?" />
+
+	<PreferenceCategory android:title="Options">
+		<ListPreference android:summary="" android:entries="@array/page_size"
+			android:entryValues="@array/page_size" android:dialogTitle="Page Size"
+			android:title="Page Size" android:key="page_size" />
+		<ListPreference android:summary="" android:entries="@array/orientation"
+			android:entryValues="@array/orientation" android:dialogTitle="Orientation"
+			android:title="Orientation" android:key="orientation" />
+	</PreferenceCategory>
+
+</PreferenceScreen>
