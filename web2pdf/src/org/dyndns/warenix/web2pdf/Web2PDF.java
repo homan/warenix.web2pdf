@@ -1,5 +1,12 @@
 package org.dyndns.warenix.web2pdf;
 
+import java.io.IOException;
+
+import org.apache.http.client.ClientProtocolException;
+import org.dyndns.warenix.web2pdf.v2.API;
+import org.dyndns.warenix.web2pdf.v2.ConvertResult;
+import org.dyndns.warenix.web2pdf.v2.ConvertService;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,9 +15,9 @@ import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.preference.Preference.OnPreferenceChangeListener;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -36,6 +43,7 @@ public class Web2PDF extends PreferenceActivity {
 
 		initPrefs();
 
+		test();
 	}
 
 	private void loadSavedPrefs() {
@@ -160,5 +168,24 @@ public class Web2PDF extends PreferenceActivity {
 	}
 
 	final static String LOG_TAG = "warenix";
+	protected static final String TAG = "Web2PDF";
 
+	private void test() {
+		new Thread() {
+			public void run() {
+				ConvertService service = new ConvertService("http://google.com");
+				try {
+					ConvertResult result = (ConvertResult) API
+							.makeCall(service);
+					if (result != null) {
+						Log.d(TAG, "converted at " + result.result.pdf_url);
+					}
+				} catch (ClientProtocolException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}.start();
+	}
 }
