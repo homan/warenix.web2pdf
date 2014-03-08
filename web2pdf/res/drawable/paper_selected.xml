@@ -4,7 +4,7 @@
 
     <stroke
         android:width="2dp"
-        android:color="#d49d63" />
+        android:color="@color/paper_border_selected" />
 
     <padding
         android:bottom="2dp"
@@ -14,6 +14,6 @@
 
     <corners android:radius="5dp" />
 
-    <solid android:color="#ffffffff" />
+    <solid android:color="@color/paper_color_selected" />
 
 </shape>

@@ -12,15 +12,13 @@
             style="@style/PaperText"
             android:layout_width="@dimen/short_a4"
             android:layout_height="@dimen/long_a4"
-            android:background="@drawable/paper"
             android:text="Portrait" />
 
         <TextView
             android:id="@+id/landscape"
             style="@style/PaperText"
-            android:layout_width="@dimen/long_a3"
-            android:layout_height="@dimen/short_a3"
-            android:background="@drawable/paper"
+            android:layout_width="@dimen/long_a4"
+            android:layout_height="@dimen/short_a4"
             android:text="Landscape" />
     </LinearLayout>
 
