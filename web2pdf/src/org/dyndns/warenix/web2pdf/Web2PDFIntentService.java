@@ -132,7 +132,11 @@ public class Web2PDFIntentService extends IntentService {
     if (VERSION.SDK_INT < VERSION_CODES.HONEYCOMB) {
       down.setShowRunningNotification(true);
     } else {
-      down.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+      if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.HONEYCOMB_MR2) {
+        down.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+      } else {
+        down.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
+      }
     }
 
     down.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, arg.filename);

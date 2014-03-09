@@ -287,13 +287,12 @@ public class MainActivity extends Activity {
       } else {
         mFilename.setError(null);
       }
-    }
-
-    // smartly append pdf extension if needed
-    boolean withPDFExt = filename.toLowerCase(Locale.US).endsWith(PDF_EXT);
-    if (!withPDFExt) {
-      filename = filename.concat(PDF_EXT);
-      mFilename.setText(filename);
+      // smartly append pdf extension if needed
+      boolean withPDFExt = filename.toLowerCase(Locale.US).endsWith(PDF_EXT);
+      if (!withPDFExt) {
+        filename = filename.concat(PDF_EXT);
+        mFilename.setText(filename);
+      }
     }
 
     // Log.d(TAG, "url:" + url);
